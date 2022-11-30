@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "enable",
+  "client_side_doc",
   "first_name",
   "middle_name",
   "last_name",
@@ -97,12 +98,18 @@
    "options": "Server Side Scripting",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "client_side_doc",
+   "fieldtype": "Link",
+   "label": "Client Side Doc",
+   "options": "Client Side Scripting"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-11-22 07:54:42.534550",
+ "modified": "2022-11-30 23:55:30.314947",
  "modified_by": "Administrator",
  "module": "Programming Module",
  "name": "Server Side Scripting",
