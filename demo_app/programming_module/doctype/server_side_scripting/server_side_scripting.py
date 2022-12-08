@@ -74,7 +74,8 @@ class ServerSideScripting(Document):
 
 
 
-	#get_doc
+	###### get_doc ######
+	## Get Data from another doctype ##
 
 	# def validate(self):
 	# 	self.get_document()
@@ -90,28 +91,74 @@ class ServerSideScripting(Document):
 
 
 
-	# new_doc()
+	###### new_doc()  ######
+	## Create new data to another doctype ##
+	# def validate(self):
+	# 	self.new_document()
 
-	def validate(self):
-		self.new_document()
-
-	def new_document(self):
-		doc = frappe.new_doc("Client Side Scripting")
-		doc.first_name = "Jake2"
-		doc.last_name = "Sully2"
-		doc.age = 302
+	# def new_document(self):
+	# 	doc = frappe.new_doc("Client Side Scripting")
+	# 	doc.first_name = "Alex"
+	# 	doc.last_name = "Cross"
+	# 	doc.age = 29
 		#child Table
-		doc.append("family_members", 
-		{
-			"name1" : "Sagar",
-			"relation": "Vara",
-			"age": 25
-		})
+		# doc.append("family_members", 
+		# {
+		# 	"name1" : "Sagar",
+		# 	"relation": "Vara",
+		# 	"age": 25
+		# })
 
-		doc.insert()
+		# doc.insert()
+
+		# #Some escape hatches that can be used to skip certain checks
+
+		# doc.insert(
+		# 	ignor_permission=True, #ignor write permissions during insert
+		# 	ignor_links=True, # ignor Link validation in the document
+		# 	ignor_if_duplicate=True, #don't insert Duplicate Entry Error in thrown
+		# 	ignor_mandatory=True, #insert even if mandatory fields are not set
+		# )
 
 
-	# delete_doc
+		###### doc.save()  ######
+		## Only save data to another doctype ##
+
+		# def validate(self):
+		# 	self.save_document()
+		
+		# def save_document(self):
+		# 	doc = frappe.new_doc('Client Side Scripting')
+		# 	doc.first_name = 'Rumpa'  
+		# 	doc.age = 31
+		# 	doc.save()
+
+		# 	doc.save(
+		# 		ignor_permission=True, #Ignor write permission during insert
+		# 		ignor_version=True, # do not create a version record
+		# 	)
+
+
+	###### delete_doc ######
+
+	# def validate(self):
+	# 	frappe.delete_doc("Client Side Scripting", "PR-0007")
+
+	## Another Way to delete doc ##
+	# def validate(self):
+	# 	self.delete_document()
+
+	# def delete_document(self):
+	# 	doc=frappe.get_doc('Client Side Scripting', 'PR-0013')
+	# 	doc.delete()
+	
+
+	#doc.db_set()
+	# set value to another doctype's specific field
 	def validate(self):
-		frappe.delete_doc("Client Side Scripting", "PR-0007")
+		self.db_set_document()
+	
+	def db_set_document(self):
+		doc=frappe.get_doc('Client Side Scripting', 'PR-0012')
+		doc.db_set('age', 45)
 
