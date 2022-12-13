@@ -155,10 +155,52 @@ class ServerSideScripting(Document):
 
 	#doc.db_set()
 	# set value to another doctype's specific field
-	def validate(self):
-		self.db_set_document()
+	# def validate(self):
+	# 	self.db_set_document()
 	
-	def db_set_document(self):
-		doc=frappe.get_doc('Client Side Scripting', 'PR-0012')
-		doc.db_set('age', 45)
+	# def db_set_document(self):
+	# 	doc=frappe.get_doc('Client Side Scripting', 'PR-0012')
+	# 	doc.db_set('age', 45)
 
+
+	"""
+		Database API
+		Get List
+		Get Data from another doctype with database api
+
+		frappe.db.get_list(doctype, filters, or filters, fileds, order by, group by, start, page_length)
+	"""
+
+	# def validate(self):
+	# 	self.get_list()
+
+	# def get_list(self):
+	# 	doc = frappe.db.get_list('Client Side Scripting', 
+	# 							filters={
+	# 								'enable': 0
+	# 							},
+	# 							fields=['first_name', 'age']
+	# 							)
+	# 	for d in doc:
+	# 		frappe.msgprint(_("The First Name is {0} and age is {1}").format(d.first_name, d.age))
+
+
+
+
+	"""
+		Database API
+		Get Value
+		Ftech Value from a document with database api
+
+		frappe.db.get_value(doctype, name, field_name) or frappe.db.get_value(doctype, filter, field_name)
+	"""
+	
+	def validate(self):
+		self.get_value()
+
+	def get_value(self):
+		first_name, age = frappe.db.get_value('Client Side Scripting', 'PR-0012', ['first_name', 'age'])
+		frappe.msgprint(_("The First Name is {0} and age is	{1}").format(first_name, age))
+	
+
+ 
