@@ -3,7 +3,7 @@
 
 // Parent form Funtion
 
-// frappe.ui.form.on('Client Side Scripting', {
+frappe.ui.form.on('Client Side Scripting', {
 
 	// >>>>>>>>>>>> Events  <<<<<<<<<<<<<<
 
@@ -25,7 +25,7 @@
 
 	// after_save: function(frm) {
 	// 	frappe.throw("Hello you error from 'after_save' event!!")
-   	// }
+	// }
 
 	// enable: function(frm) {
 	// 	frappe.msgprint("Hello you from 'enable' field event!!")
@@ -77,11 +77,11 @@
 	// >>>>>>>>>>>> Set Into  <<<<<<<<<<<<<<
 
 	// refresh: function(frm) {
-		// frm.set_intro('Now you can change intro')
+	// frm.set_intro('Now you can change intro')
 
-		// if(frm.is_new()){
-		// 	frm.set_intro('Now you can change intro')
-		// }
+	// if(frm.is_new()){
+	// 	frm.set_intro('Now you can change intro')
+	// }
 
 	// }
 
@@ -107,7 +107,7 @@
 
 	// enable:function(frm) {
 	// 	frm.set_df_property('first_name', 'reqd', 1)
-		
+
 	// 	frm.set_df_property('middle_name', 'read_only', 1)
 
 	// 	frm.toggle_reqd('age', true)
@@ -116,20 +116,20 @@
 	// }
 
 
-// >>>>>>>>>>>> Custom Button <<<<<<<<<<<<<<
+	// >>>>>>>>>>>> Custom Button <<<<<<<<<<<<<<
 
 	// refresh: function(frm) {
 	// 	  frm.add_custom_button(__('Get User Email Address'), function(){
 	// 		frappe.msgprint(frm.doc.first_name);
 	// 	}, __("Utilities"));
-		
+
 	//   }
 
-// });
+	// });
 
 
 
-// >>>>>>>>>>>> set_query <<<<<<<<<<<<<<
+	// >>>>>>>>>>>> set_query <<<<<<<<<<<<<<
 
 
 	// frappe.ui.form.on('Client Side Scripting', 'onload', function(frm) {
@@ -145,29 +145,21 @@
 
 
 
-	frappe.ui.form.on('Client Side Scripting', 'onload', function(frm) {
-		frm.set_query('property_name', function(){
-			return {
-				"filters": [
-					["Property", "status", "=", "Rent"],
-					["Property", "property_type", "!=", "Condo"],
-				]
-			}
-		});
-	});
+	//Set Query
+
+	// frappe.ui.form.on('Client Side Scripting', 'onload', function(frm) {
+	// 	frm.set_query('property_name', function(){
+	// 		return {
+	// 			"filters": [
+	// 				["Property", "status", "=", "Rent"],
+	// 				["Property", "property_type", "!=", "Condo"],
+	// 			]
+	// 		}
+	// 	});
+	// });
 
 
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 
